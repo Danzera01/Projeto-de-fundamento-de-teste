@@ -1,0 +1,22 @@
+body {
+    font-family: Arial;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+button {
+    padding: 12px;
+    background: #4e73df;
+    color: white;
+    border: none;
+}
