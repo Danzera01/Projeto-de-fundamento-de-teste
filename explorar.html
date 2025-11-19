@@ -15,5 +15,137 @@
 <section class="lista-projetos" id="listaProjetos"></section>
 
 <script src="js/explorar.js"></script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrossel - Ajuda para Projetos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f1f1;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 650px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.65);
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 17px;
+        }
+
+        .buttons {
+            margin-top: 15px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            margin: 0 6px;
+            border: none;
+            border-radius: 8px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .buttons button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ajude Projetos que Transformam Vidas</h2>
+    <p>Contribua com iniciativas educacionais, tecnológicas e sociais!</p>
+
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+
+            <div class="slide">
+                <img src="https://s2-g1.glbimg.com/awpTR03eeyz8WBT8QMQXCSi85ow=/0x0:1280x854/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/s/G/2yK3y8Tuuzwqx9PzhfXg/whatsapp-image-2019-10-09-at-13.30.09-1-.jpeg" alt="Projeto Educacional">
+                <div class="caption">Apoie projetos educacionais que ajudam crianças e jovens a estudar melhor.</div>
+            </div>
+
+            <div class="slide">
+                <img src="https://www.cartacapital.com.br/wp-content/uploads/2024/08/iStock-1530973530-1024x576.jpg" alt="Projeto Tecnológico">
+                <div class="caption">Doe para iniciativas tecnológicas que capacitam novos talentos.</div>
+            </div>
+
+            <div class="slide">
+                <img src="https://res.cloudinary.com/worldpackers/image/upload/c_fill,f_auto,q_auto,w_1024/v1/guides/article_cover/am2xnkjkjhyc5auyuqlz?_a=BACADKGT" alt="Projeto Social">
+                <div class="caption">Contribua com ações sociais que fazem diferença nas comunidades.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="prevSlide()">Anterior</button>
+        <button onclick="nextSlide()">Próximo</button>
+    </div>
+
+    <script>
+        let index = 0;
+
+        function showSlide() {
+            const carousel = document.getElementById('carousel');
+            const size = carousel.clientWidth;
+            carousel.style.transform = `translateX(${-index * size}px)`;
+        }
+
+        function nextSlide() {
+            const total = document.querySelectorAll('.slide').length;
+            index = (index + 1) % total;
+            showSlide();
+        }
+
+        function prevSlide() {
+            const total = document.querySelectorAll('.slide').length;
+            index = (index - 1 + total) % total;
+            showSlide();
+        }
+
+        window.addEventListener('resize', showSlide);
+    </script>
+
+</body>
+</html>
 </body>
 </html>
